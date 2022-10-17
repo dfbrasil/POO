@@ -1,26 +1,23 @@
 class Pessoa():
 
-    def __init__(self, nome, idade_atual, peso_atual, altura, peso_futuro, idade_futuro):
+    def __init__(self, nome, idade_atual, peso_atual, altura, peso, anos):
         self.nome = nome
         self.idade_atual = idade_atual
         self.peso_atual = peso_atual
         self.altura = altura
-        self.peso_futuro = peso_futuro
-        self.idade_futuro = idade_futuro
+        self.peso = peso
+        self.anos = anos
 
-    def envelhecer(self):
-
-        velho = self.idade_futuro - self.idade_atual
+    def envelhecer(self,anos):
+        velho = self.idade_atual + anos
         return velho
    
-    def engordar(self):
-        if self.peso_atual < self.peso_futuro:
-            engordou = self.peso_futuro - self.peso_atual
-            return engordou
+    def engordar(self, peso):
+        engordou = self.peso_atual + peso
+        return engordou
 
-    def emagrecer(self):
-        if self.peso_atual > self.peso_futuro:
-            emagreceu = self.peso_atual - self.peso_futuro
+    def emagrecer(self,peso):
+            emagreceu = self.peso_atual + peso
             return emagreceu
 
     def crescer(self):
@@ -35,12 +32,18 @@ nome = input('Digite seu nome: ')
 idade_atual = int(input('Digite a idade atual: '))
 peso_atual = int(input('Digite o peso atual: '))
 altura = int(input('Digite a altura atual: '))
-idade_futuro = int(input('Digite a idade futura: '))
-peso_futuro = int(input('Digite o peso futuro: '))
+anos = int(input('Digite quantos anos quer envelhecer? '))
+peso = int(input('Quantos kgs vc quer alterar de seu peso atual?'))
 
-pessoa = Pessoa(nome,idade_atual,peso_atual,altura, peso_futuro, idade_futuro)
+pessoa = Pessoa(nome,idade_atual,peso_atual,altura, peso, anos)
 
-print (f' {nome} envelheceu {pessoa.envelhecer()} anos')
-print (f' {nome} engordou {pessoa.engordar()} kg')
-print (f' {nome} emagreceu {pessoa.emagrecer()} kg')
+print (f' {nome} envelheceu e está com {pessoa.envelhecer(anos)} anos')
+
+if peso >0:
+    print (f' {nome} engordou e está com {pessoa.engordar(peso)} kg')
+elif peso < 0: 
+    print (f' {nome} emagreceu e está com {pessoa.emagrecer(peso)} kg')
+else:
+    print(f' {nome} não alterou o peso')
+
 print (f' A altura atual de {nome} é {pessoa.crescer()}')

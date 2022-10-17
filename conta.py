@@ -21,25 +21,22 @@ class Conta():
     def extrato (self, numero, saldo):
         print(f'numero {self.numero} saldo {self.saldo}')
 
-    def transferir12(self,valor_trans):
-        if valor_trans > conta1.saldo:
-            print ('Valor transferido maior que o saldo.')
+    def transferir(self,conta_saque, conta_deposito, valor):
+        
+        if (conta_saque == self.conta1.numero):
+            temsaldo = self.saca()
+            if temsaldo == True:
+                conta_deposito.depositar(valor_trans)
+            else:
+                print (f'sem saldo em {self.conta1.numero}')
+        
+        elif (conta_saque == self.conta2.numero):
+            temsaldo = self.saca()
+            if temsaldo == True:
+                conta_deposito.depositar(valor_trans)
+            else:
+                print (f'sem saldo em {self.conta2.numero}')
 
-        else:    
-            conta1.saldo -= valor_trans
-            conta2.saldo += valor_trans
-
-        return conta1.saldo, conta2.saldo
-
-    def transferir21(self,valor_trans):
-        if valor_trans > conta2.saldo:
-            print ('Valor transferido maior que o saldo.')
-
-        else:    
-            conta2.saldo -= valor_trans
-            conta1.saldo += valor_trans
-
-        return conta1.saldo, conta2.saldo
 
 numero1 = int(input('Digite o número da primeira conta: '))
 titular1 = (input('Digite o nome do titular primeira conta: '))
@@ -64,7 +61,7 @@ while operacao != 0:
 
     qual_conta = int(input('Digite qual conta você deseja fazer as operações: '))
 
-    if qual_conta == numero1:
+    if (qual_conta == numero1) or (qual_conta == numero2):
 
         print ('1 - Para extrato')
         print ('2 - Para depositar')
@@ -78,7 +75,7 @@ while operacao != 0:
             print ('operação inválida')
 
         elif operacao == 1:
-            conta1.extrato(numero1, saldo1)
+            conta1.extrato(qual_conta)
 
         elif operacao ==2:
             depositar1 = float(input('Digite um valor a ser depositado na primeira conta: '))
@@ -89,47 +86,50 @@ while operacao != 0:
             print(conta1.saca(saca1))
 
         elif operacao == 4:
-            conta_trans = int(input('Conta a ser realizada a transferência: '))
 
-            if conta_trans != numero2:
+            conta_saque = int(input('Conta a ser realizada o saque : '))
+            conta_deposito = int(input('Conta a ser realizada o deposito : '))
+            valor = float(input('Digite um valor a ser transferido: '))
+
+            if (conta_saque != numero1) or (conta_saque != numero2):
                 print ('Conta inválida')
 
             else:
                 valor_trans = float(input('Valor da transferencia: ')) 
-                conta1.transferir12(valor_trans)
+                conta1.transferir(valor,conta2)
 
-    elif qual_conta == numero2:
+    # elif qual_conta == numero2:
 
-        print ('1 - Para extrato')
-        print ('2 - Para depositar')
-        print ('3 - Para sacar')
-        print ('4 - Para transferir')
-        print ('0 - Para sair')
-        operacao = int(input('Digite a operação que deseja fazer: '))
+    #     print ('1 - Para extrato')
+    #     print ('2 - Para depositar')
+    #     print ('3 - Para sacar')
+    #     print ('4 - Para transferir')
+    #     print ('0 - Para sair')
+    #     operacao = int(input('Digite a operação que deseja fazer: '))
 
-        if operacao > 4 or operacao < 0:
-            print ('operação inválida')
+    #     if operacao > 4 or operacao < 0:
+    #         print ('operação inválida')
 
-        elif operacao == 1:
-            conta2.extrato(numero2, saldo2)
+    #     elif operacao == 1:
+    #         conta2.extrato(numero2, saldo2)
         
-        elif operacao ==2:
-            depositar2 = float(input('Digite um valor a ser depositado na segunda conta: '))
-            conta2.depositar(depositar2)
+    #     elif operacao ==2:
+    #         depositar2 = float(input('Digite um valor a ser depositado na segunda conta: '))
+    #         conta2.depositar(depositar2)
 
-        elif operacao == 3:
-            saca2 = float(input('Digite um valor a ser sacado da segunda conta: '))
-            print(conta2.saca(saca2))
+    #     elif operacao == 3:
+    #         saca2 = float(input('Digite um valor a ser sacado da segunda conta: '))
+    #         print(conta2.saca(saca2))
         
-        elif operacao == 4:
-            conta_trans = int(input('Conta a ser realizada a transferência: '))
+    #     elif operacao == 4:
+    #         conta_trans = int(input('Conta a ser realizada a transferência: '))
 
-            if conta_trans != numero1:
-                print ('Conta inválida')
+    #         if conta_trans != numero1:
+    #             print ('Conta inválida')
 
-            else:
-                valor_trans = float(input('Valor da transferencia: ')) 
-                conta2.transferir21(valor_trans)
+    #         else:
+    #             valor_trans = float(input('Valor da transferencia: ')) 
+    #             conta2.transferir21(valor_trans)
         
     else:
         print ('Conta inválida')
