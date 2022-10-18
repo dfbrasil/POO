@@ -7,10 +7,6 @@ class Conta():
         self.limite = limite
         self.nome_tipo = nome_tipo
         self.codigo_tipo = codigo_tipo
-
-    # def __init__(self, numero, saldo):
-    #     self.numero = numero
-    #     self.saldo = saldo
        
     def depositar(self, valor):
         self.saldo += valor
@@ -62,9 +58,6 @@ codigo_tipo = int(input('Qual o codigo da operação? 51 ou 03: '))
 
 conta1 = Conta(numero1, titular1, saldo1, limite1, nome_tipo, codigo_tipo)
 conta2 = Conta(numero2, titular2, saldo2, limite2, nome_tipo, codigo_tipo)
-
-# conta1 = Conta(numero1, saldo1)
-# conta2 = Conta(numero2, saldo2)
 
 operacao = 1
 
