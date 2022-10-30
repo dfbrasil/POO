@@ -37,5 +37,6 @@ class Pessoa:
 
 p = Pessoa("Daniel", 40, 70, 170)
 
-print(p. get_nome())
-#print (p.set_nome())
+print(p.get_nome())
+p.set_nome('Teste')
+print(p.get_nome())
