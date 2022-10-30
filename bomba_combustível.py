@@ -1,9 +1,4 @@
 
-# DESAFIO VALENDO PONTO EXTRA:
-
-# - Como poderíamos abstrair e trazer para o “metaverso” um veículo do "mundo real"? Pense nos atributos e ações de um veículo.
-# - E, entāo, implemente uma classe Veiculo que o objeto possa abastecer a partir de um objeto da classe BombaCombustivel.
-
 class BombaCombustivel():
 
     def __init__(self, tipo_combustivel, valor_litro, qtd_combustivel, litros_consumidos):
@@ -73,7 +68,7 @@ class BombaCombustivel():
         print(' ')
 
 
-class Veiculo(BombaCombustivel):
+class Veiculo():
 
     def __init__(self,tipo_combustivel,tanque_atual, tanque_total, km_l, distancia):
 
@@ -83,7 +78,6 @@ class Veiculo(BombaCombustivel):
         self.km_l = km_l
         self.distancia = distancia
         
- 
     def volume_atual(self):
         print (f'O tanque contém atualmente {self.tanque_atual} litros de {self.tipo_combustivel}')
 
@@ -187,7 +181,7 @@ while opcao_geral!= 0:
             elif opcao_servico == 4:
                 valor = float(input('Digite o valor a ser abastecido: '))
                 print(' ')
-                bomba_alcool.abastecerPorValor(valor)
+                bomba_alcool.abastecerPorValor(valor) ## inserir os IF pra gasolina e DIESEL
                 carro.abastecer_valor(valor)
             elif opcao_servico == 5:
                 litros = float(input('Digite a quantidade de litros a ser abastecido: '))
