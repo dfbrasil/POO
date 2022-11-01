@@ -130,13 +130,6 @@ alcool_valor_litro = float(input('Digite o valor do litro de álcool: '))
 alcool_qtd_tanque = float(input('Digite a quantidade inicial de litros de álcool no tanque: '))
 bomba_alcool = BombaCombustivel('alcool', alcool_valor_litro, alcool_qtd_tanque, litros_consumidos=0)
 
-print ('Cadastramento inicial dos componentes do veículo')
-tipo = input('Digite o tipo de combustível do veículo: ')
-tanque_atual = float(input('Digite o volume atual do tanque: '))
-tanque_total = float(input('Digite o volume máximo do tanque: '))
-consumo = float(input('Digite o consumo do carro em km/l: '))
-carro = Veiculo(tipo, tanque_atual, tanque_total, consumo, distancia=0)
-
 gasolina_valor_litro = float(input('Digite o valor do litro de gasolina: '))
 gasolina_qtd_tanque = float(input('Digite a quantidade inicial de litros de gasolina no tanque: '))
 bomba_gasolina = BombaCombustivel('gasolina', gasolina_valor_litro, gasolina_qtd_tanque, litros_consumidos=0)
@@ -144,6 +137,13 @@ bomba_gasolina = BombaCombustivel('gasolina', gasolina_valor_litro, gasolina_qtd
 diesel_valor_litro = float(input('Digite o valor do litro de diesel: '))
 diesel_qtd_tanque = float(input('Digite a quantidade inicial de litros de diesel no tanque: '))
 bomba_diesel = BombaCombustivel('diesel', diesel_valor_litro, diesel_qtd_tanque, litros_consumidos=0)
+
+print ('Cadastramento inicial dos componentes do veículo')
+tipo = input('Digite o tipo de combustível do veículo: ')
+tanque_atual = float(input('Digite o volume atual do tanque: '))
+tanque_total = float(input('Digite o volume máximo do tanque: '))
+consumo = float(input('Digite o consumo do carro em km/l: '))
+carro = Veiculo(tipo, tanque_atual, tanque_total, consumo, distancia=0)
 
 opcao_geral =100
 
@@ -168,6 +168,7 @@ while opcao_geral!= 0:
             print ('Digite "3" para viajar: ')
             print ('Digite "4" para abastecer em Reais: ')
             print ('Digite "5" para abastecer em litros: ')
+            print ('Digite "6" para alterar o veículo')
             opcao_servico = int(input('Digite "0" para Sair: '))
             print(' ')
 
@@ -181,13 +182,34 @@ while opcao_geral!= 0:
             elif opcao_servico == 4:
                 valor = float(input('Digite o valor a ser abastecido: '))
                 print(' ')
-                bomba_alcool.abastecerPorValor(valor) ## inserir os IF pra gasolina e DIESEL
-                carro.abastecer_valor(valor)
+                if carro.tipo_combustivel == 'alcool':
+                    bomba_alcool.abastecerPorValor(valor) ## inserir os IF pra gasolina e DIESEL
+                    carro.abastecer_valor(valor)
+                elif carro.tipo_combustivel == 'gasolina':
+                    bomba_gasolina.abastecerPorValor(valor) ## inserir os IF pra gasolina e DIESEL
+                    carro.abastecer_valor(valor)
+                elif carro.tipo_combustivel == 'diesel':
+                    bomba_diesel.abastecerPorValor(valor) ## inserir os IF pra gasolina e DIESEL
+                    carro.abastecer_valor(valor)
             elif opcao_servico == 5:
                 litros = float(input('Digite a quantidade de litros a ser abastecido: '))
-                bomba_alcool.abastecerPorLitro(litros)
-                carro.abastecer_litros(litros)
+                print (' ')
+                if carro.tipo_combustivel == 'alcool':
+                    bomba_alcool.abastecerPorLitro(litros) ## inserir os IF pra gasolina e DIESEL
+                    carro.abastecer_litros(litros)
+                elif carro.tipo_combustivel == 'gasolina':
+                    bomba_gasolina.abastecerPorLitro(litros) ## inserir os IF pra gasolina e DIESEL
+                    carro.abastecer_litros(litros)
+                elif carro.tipo_combustivel == 'diesel':
+                    bomba_diesel.abastecerPorLitro(litros) ## inserir os IF pra gasolina e DIESEL
+                    carro.abastecer_litros(litros)
                 print()
+            elif opcao_servico == 6:
+                tipo = input('Digite o tipo de combustível do veículo: ')
+                tanque_atual = float(input('Digite o volume atual do tanque: '))
+                tanque_total = float(input('Digite o volume máximo do tanque: '))
+                consumo = float(input('Digite o consumo do carro em km/l: '))
+                carro = Veiculo(tipo, tanque_atual, tanque_total, consumo, distancia=0)
 
     if opcao_geral == 1:
 
