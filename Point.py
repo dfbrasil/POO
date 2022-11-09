@@ -8,27 +8,41 @@ class Point:
         """Inicializa a posição de um novo ponto. x e y podem
            ser especificados. Se eles não forem, as coordenadas
            serão inicializadas na origem."""
+        self.x = x
+        self.y = y
         pass
         
     def move(self, x, y):
-        "Move um ponto para uma nova coordenada no espaço 2D." 
-        pass
+        "Move um ponto para uma nova coordenada no espaço 2D."
+        self.x = x
+        self.y = y
+        return self
     
     def reset(self):
-        "Reposiciona um ponto na origem geométrica: (0, 0)" 
-        pass
+        "Reposiciona um ponto na origem geométrica: (0, 0)"
+        self.x = 0
+        self.y = 0
+        return self
 
     def calculate_distance(self, other_point):
         """Calcula a distância euclidiana entre esse ponto e um segundo
         ponto passado como parâmetro. Depois, a distância é 
         retorna como um float."""
-        pass    
+        dist = math.sqrt(math.pow((p1.x - other_point.x),2) + math.pow((p1.y - other_point.y),2))
+
+        return dist   
     
     def __add__(self, other):
         '''soma x e y de dois pontos distintos
         other é um objeto "do tipo Point"
         '''
-        pass
+        somax = p1.x + other.x
+        somay = p1.y + other.y
+
+        self.x= somax
+        self.y = somay
+
+        return self
 
     def __str__(self):
         return "Point: x %d, y %d" % (self.x , self.y)
