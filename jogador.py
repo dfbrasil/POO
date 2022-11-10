@@ -1,6 +1,7 @@
 
 import datetime
 
+
 class Jogador:
 
     def __init__(self, nome, posicao, ano, mes, dia, nacionalidade, altura, peso):
