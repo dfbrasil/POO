@@ -1,39 +1,24 @@
-# Crie uma classe para representar datas. Represente uma data usando três atributos privados: o dia, o mês, e o ano.
-
-
-#   * Sua classe deve ter um construtor que inicializa os três atributos e verifica a validade dos valores fornecidos. OK
-#   * Caso as datas não sejam passadas no construtor (devem ser parâmetros opcionais), inicialize a data com a data atual fornecida pelo sistema operacional. Procure uma biblioteca que retorne a data atual do sistema operacional. 
-# OK
-
-#   * Forneça os métodos get/set para cada atributo. 
-#OK
-
-#   * Forneça o método __str__ para retornar uma representação da data como string. Considere que a data deve ser formatada mostrando o dia, o mês e o ano separados por barra (/).
-#OK
-
-#   * Forneça um método para avançar uma data para o dia seguinte. 
-#   * Forneça um método para verificar se o ano é bissexto.
-#OK
-#   * Use o método __add__ para somar dois objetos da classe data. Além da soma de dois objetos do mesmo tipo,  o método deve permitir  a soma de uma "data" e um inteiro. Esse inteiro representa a quantidade de dias a ser somado.
-#   * Use docstrings para documentar cada método.
-#   * Escreva um programa de teste (main.py) separado da classe Data que demonstra as capacidades da classe.
-
+"""Importação da função datetime"""
 import datetime
 
-
+"""Criação da classe Data"""
 class Data:
 
+    """ Construtor de inicalização dos atributos iniciais Dia, Mes, Ano"""
     def __init__(self, dia = datetime.date.today().day, mes = datetime.date.today().month, ano = datetime.date.today().year):
         self.__dia = dia
         self.__mes = mes
         self.__ano = ano
 
+    """Método que retorna o parâmetro privado __dia"""
     def get_dia(self):
         return self.__dia
 
+    """Método que altera o parâmetro privado __dia"""
     def set_dia(self, dia):
         self.__dia = dia
 
+    """Método que retorna o parâmetro privado __mes"""
     def get_mes(self):
         return self.__mes
 
@@ -55,10 +40,110 @@ class Data:
     def avanca(self, dia, mes, ano):
         if mes in (1,3,5,7,8,10,12) and dia < 30:
             self.__dia += 1
-        #CONTINUA
-            
-        return
+        elif mes in (1,3,5,7,8,10,12) and dia == 31:
+            self.__dia = 1
+            if mes == 12:
+                self.__mes = 1
+                self.__ano += 1
+            else:
+                self.__mes += 1
 
+        elif (mes == 2) and ((ano % 4 == 0 and ano % 100 != 0) or (ano%400==0)) and dia == 28:
+            self.__dia =+ 1
+        
+        elif (mes == 2) and ((ano % 4 == 0 and ano % 100 != 0) or (ano%400==0)) and dia == 29:
+            self.__dia = 1
+            self.__mes += 1
+
+        elif (mes == 2) and dia == 27:
+            self.__dia =+ 1
+
+        elif (mes == 2)  and dia == 28:
+            self.__dia = 1
+            self.__mes += 1
+
+        elif mes in (4,6,9,11) and dia < 30:
+            self.__dia +=1
+        
+        elif mes in (4,6,9,11) and dia == 30:
+            self.__dia = 1
+            self.__mes += 1
+
+    def __add__(self, other):
+
+        if (type(other) is not int):
+
+            soma_dia = self.__dia + other.__dia
+            soma_mes = self.__mes + other.__mes
+            soma_ano = self.__ano + other.__ano
+
+            self.__dia = soma_dia
+            self.__mes = soma_mes
+            self.__ano = soma_ano
+
+        elif (type(other) is int):
+            if self.__mes in (1,3,5,7,8,10,12) and ((self.__dia + other) <= 31):
+                self.__dia += other
+                
+                return Data(self.__dia, self.__mes, self.__ano)
+
+            elif self.__mes in (1,3,5,7,8,10,12) and ((self.__dia + other) > 31):
+
+                dias_cheio = self.__dia + other
+                dias_excesso = dias_cheio - 31
+                self.__dia = dias_excesso
+                if self.__mes == 12:
+                    self.__mes = 1
+                    self.__ano += 1
+                else:
+                    self.__mes += 1
+
+                    return Data(self.__dia, self.__mes, self.__ano)
+
+            elif (self.__mes == 2) and ((self.__ano % 4 == 0 and self.__ano % 100 != 0) or (self.__ano%400==0)) and ((self.__dia + other) <= 29):
+                self.__dia =+ other
+
+                return Data(self.__dia, self.__mes, self.__ano)
+                
+            elif (self.__mes == 2) and ((self.__ano % 4 == 0 and self.__ano % 100 != 0) or (self.__ano%400==0)) and ((self.__dia + other) > 29):
+                dias_cheio = self.__dia + other
+                dias_excesso = dias_cheio - 29
+                self.__dia = dias_excesso
+                self.__mes += 1
+
+                return Data(self.__dia, self.__mes, self.__ano)
+
+            elif (self.__mes == 2) and ((self.self.__dia + other) <= 28):
+                self.__dia =+ other
+
+                return Data(self.__dia, self.__mes, self.__ano)
+
+            elif (self.__mes == 2)  and ((self.self.__dia + other) > 28):
+                dias_cheio = self.__dia + other
+                dias_excesso = dias_cheio - 28
+                self.__dia = dias_excesso
+                self.__mes += 1
+
+                return Data(self.__dia, self.__mes, self.__ano)
+
+            elif self.__mes in (4,6,9,11) and self.__dia ((self.self.__dia + other) <= 30):
+                self.__dia += other
+
+                return Data(self.__dia, self.__mes, self.__ano)
+                
+            elif self.__mes in (4,6,9,11) and ((self.self.__dia + other) > 29):
+                dias_cheio = self.__dia + other
+                dias_excesso = dias_cheio - 29
+                self.__dia = dias_excesso
+                self.__mes += 1
+
+                return Data(self.__dia, self.__mes, self.__ano)
+
+    # def __add__(self, other):
+    #     if( type(other) is not int):
+    #         return Data(self.__dia + other.__dia, self.__mes + other.__mes, self.__ano + other.__ano)
+    #     if( type(other) is int):    
+    #         return Data(self.__dia + other, self.__mes, self.__ano)
 
     def __str__(self):
         return (f'{self.__dia}/{self.__mes}/{self.__ano}')
