@@ -9,4 +9,4 @@ class MensagemNatal(CartaoMensagem):
 
 
     def __str__(self):
-        return (f'{self.get_nome()} natal  {self.rementente}, {self.texto}')
+        return (f'{self.get_nome()}, Oh oh oh ! Feliz Natal!! Ass:  {self.rementente}, {self.texto}')
