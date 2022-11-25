@@ -1,5 +1,6 @@
 from datetime import date
 
+
 class Cliente:
 
     def __init__(self, nome, sobrenome, cpf):
