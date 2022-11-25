@@ -24,4 +24,3 @@ data_teste.avanca(dia,mes,ano)
 print (f'Avançando um dia à data inicial: {data_teste.__str__()}')
 
 print (f'Impriminto a data somada a quantidade de dias desejada: {d3.__str__()}')
-

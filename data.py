@@ -1,3 +1,4 @@
+
 """Importação da função datetime"""
 import datetime
 
@@ -22,21 +23,26 @@ class Data:
     def get_mes(self):
         return self.__mes
 
+    """Método que altera o parâmetro privado __mes"""
     def set_mes(self, mes):
         self.__mes = mes
 
+    """Método que retorna o parâmetro privado __ano"""
     def get_ano(self):
         return self.__ano
 
+    """Método que altera o parâmetro privado __ano"""
     def set_ano(self,ano):
         self._ano = ano
-        
+
+    """Método que verifica se o ano é bissexto"""    
     def bissexto(self, ano):
         if (ano % 4 == 0 and ano % 100 != 0) or (ano%400==0):
-            print('Ano bissexto !!')
+            print(f'{ano} é um ano bissexto !!')
         else:
-            print('Ano não é bissexto !!')
+            print(f'{ano} não é um ano é bissexto !!')
 
+    '''Método que avança mais um dia e verifica as condições para isso'''
     def avanca(self, dia, mes, ano):
         if mes in (1,3,5,7,8,10,12) and dia < 30:
             self.__dia += 1
@@ -69,6 +75,7 @@ class Data:
             self.__dia = 1
             self.__mes += 1
 
+    '''Método que soma um valor em dias à uma data, ou soma duas datas passadas pelo usuário'''
     def __add__(self, other):
 
         if (type(other) is not int):
@@ -139,18 +146,6 @@ class Data:
 
                 return Data(self.__dia, self.__mes, self.__ano)
 
-    # def __add__(self, other):
-    #     if( type(other) is not int):
-    #         return Data(self.__dia + other.__dia, self.__mes + other.__mes, self.__ano + other.__ano)
-    #     if( type(other) is int):    
-    #         return Data(self.__dia + other, self.__mes, self.__ano)
-
+    '''Método que retorna a data'''
     def __str__(self):
         return (f'{self.__dia}/{self.__mes}/{self.__ano}')
-
-    
-
-
-# dia_atual = datetime.date.today().day
-# mes_atual = datetime.date.today().month
-# ano_atual = datetime.date.today().year
