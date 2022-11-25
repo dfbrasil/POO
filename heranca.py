@@ -84,3 +84,6 @@ class Historico:
         for t in self.transacoes:
             print("-", t)
 
+
+#Questão 2 (Opcional)
+#Não, pois atualiza já estaria implementada envolvendo apenas o valor de saldo total.
