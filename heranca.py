@@ -11,9 +11,10 @@ class Cliente:
 
 class Conta:
 
-    def __init__(self, numero, titular, saldo, limite = 1000):
+    def __init__(self, numero, titular, nome_tipo, saldo, limite = 1000):
         self.numero = numero
         self.titular = titular
+        self.nome_tipo = nome_tipo
         self.saldo = saldo
         self.limite = limite
         self.historico = Historico()
@@ -48,7 +49,7 @@ class Conta:
         return self.saldo
 
     def __str__(self):
-        return f'Dados da conta: \nNúmero: {self.numero} \nTitular: {self.titular} \nSaldo: {self.saldo} \nLimite: {self.limite}'
+        return f'Dados da conta: \nNúmero: {self.numero} \nTitular: {self.titular} \nTipo da conta: {self.nome_tipo} \nSaldo: {self.saldo} \nLimite: {self.limite}'
 
 
 class ContaCorrente(Conta):

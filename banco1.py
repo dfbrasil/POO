@@ -4,14 +4,13 @@ from heranca import Conta
 
 
 class Nome(Conta):
-   def __init__(self, titular, saldo=0):
-        super().__init__(titular, saldo)
+   def __init__(self, titular, saldo):
+        super().__init__(titular,saldo)
 
 class Numero(Conta):
     def __init__(self,numero):
         super().__init__(numero)
         
-
 class Tipo(Conta):
     def __init__(self, nome_tipo):
         super().__init__(nome_tipo)
