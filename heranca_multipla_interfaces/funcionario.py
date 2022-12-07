@@ -1,3 +1,4 @@
+
 class Funcionario:
 
     def __init__(self, nome, cpf, salario):
@@ -8,6 +9,7 @@ class Funcionario:
     def get_bonificacao(self):
         return self._salario * 0.10     
 
+
 class Gerente(Funcionario):
 
     def __init__(self, nome, cpf, salario, senha, qtd_gerenciaveis):
@@ -17,6 +19,15 @@ class Gerente(Funcionario):
 
     def get_bonificacao(self):
         return super().get_bonificacao() + 1000
+
+    def autentica(self,senha):
+        if self._senha == senha:
+            print ('Acesso permitido')
+            return True
+        else:
+            print('Acesso negado')
+            return False
+    
 
 class Motorista(Funcionario):
     def __init__(self, nome, cpf, salario, senha):
