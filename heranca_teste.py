@@ -1,2 +1,0 @@
-from heranca_polimorf.atualizador_de_contas import AtualizadorDeContas
-from heranca_polimorf.heranca import Conta, ContaCorrente, ContaPoupanca
