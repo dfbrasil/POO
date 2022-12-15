@@ -1,6 +1,8 @@
 from datetime import date
-from tributavel import Tributavel
+
 from manipulador_de_tributaveis import ManipuladorDeTributaveis
+from tributavel import Tributavel
+
 
 class Cliente:
 
@@ -82,7 +84,7 @@ class SeguroDeVida:
         return 50 + self.valor * 0.05
 
 
-class ContaInvestimento(Conta):
+class ContaInvestimento(Conta, Tributavel): #herdando tributável obrigado a implementar o método get_valor_imposto
 
     def atualiza(self, taxa):
         self.saldo += self.saldo * taxa * 5
@@ -119,7 +121,7 @@ if __name__ == '__main__':
     seguro = SeguroDeVida(100.0, 'José', '345-77')
 
     Tributavel.register(ContaCorrente)
-    Tributavel.register(SeguroDeVida)
+    Tributavel.register(SeguroDeVida) #só registra se não tiver herdado na classe
 
     lista_tributaveis = []
     lista_tributaveis.append(cc)

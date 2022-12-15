@@ -76,7 +76,7 @@ class Data:
             self.__mes += 1
 
     '''Método que soma um valor em dias à uma data, ou soma duas datas passadas pelo usuário'''
-    def __add__(self, other):
+    def __radd__(self, other):
 
         if (type(other) is not int):
 
@@ -87,6 +87,8 @@ class Data:
             self.__dia = soma_dia
             self.__mes = soma_mes
             self.__ano = soma_ano
+
+            return Data(self.__dia,self.__mes, self.__ano) #Retorna (Cria) uma nova isntância
 
         elif (type(other) is int):
             if self.__mes in (1,3,5,7,8,10,12) and ((self.__dia + other) <= 31):

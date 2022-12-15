@@ -1,5 +1,6 @@
 from tributavel import Tributavel
 
+
 class ManipuladorDeTributaveis:
 
     def calcula_impostos(self, lista_tributaveis):
