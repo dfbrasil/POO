@@ -55,7 +55,7 @@ class Conta:
         return f'Dados da conta: \nNúmero: {self.numero} \nTitular: {self.titular} \nTipo da conta: {self.nome_tipo} \nSaldo: {self.saldo} \nLimite: {self.limite}'
 
 
-class ContaCorrente(Conta):
+class ContaCorrente(Conta):#se herdar de Tributável será uma herança multipla e não uma interface
     
     def atualiza(self, taxa):
         self.saldo += self.saldo * taxa * 2
@@ -112,6 +112,8 @@ class Historico:
         for t in self.transacoes:
             print("-", t)
 
+
+
 if __name__ == '__main__':
     from tributavel import Tributavel
 
@@ -121,7 +123,7 @@ if __name__ == '__main__':
     seguro = SeguroDeVida(100.0, 'José', '345-77')
 
     Tributavel.register(ContaCorrente)
-    Tributavel.register(SeguroDeVida) #só registra se não tiver herdado na classe
+    Tributavel.register(SeguroDeVida) #só registra se não tiver herdado na classe Tributavel
 
     lista_tributaveis = []
     lista_tributaveis.append(cc)

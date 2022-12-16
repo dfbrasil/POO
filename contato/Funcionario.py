@@ -17,3 +17,6 @@ class Gerente(Funcionario):
 
     def get_bonificacao(self):
         return super().get_bonificacao() + 1000
+
+gerente = Gerente('José', '222222222-22', 5000.0, '1234', 0)
+print(gerente.get_bonificacao())
