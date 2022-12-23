@@ -7,12 +7,12 @@ class Hobby(Enum):
     games = 3
 
 
-def print_my_hoby_is_games(hobby):
-    if hobby == Hobby.games:
-        print ('Meu hobby é ', hobby.name)
-    else:
-        print ('O hobby não é games e sim: ', hobby.name)
-    return hobby.name
+    def print_my_hoby_is_games(hobby):
+        if hobby == Hobby.games:
+            print ('Meu hobby é ', hobby.name)
+        else:
+            print ('O hobby não é games e sim: ', hobby.name)
+        return hobby.name
 
 
     

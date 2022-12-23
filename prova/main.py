@@ -22,7 +22,9 @@ Entradas da questão 2
 hm = Hobby.music
 hs = Hobby.sports
 hg = Hobby.games
-# h.print_my_hoby_is_games(h)
+hm.print_my_hoby_is_games()
+hs.print_my_hoby_is_games()
+hg.print_my_hoby_is_games()
 
 """
 Entradas da questão 3
@@ -43,7 +45,7 @@ while opcao != 0:
     if opcao == 0:
         break
 
-friend.play(lista_amigos, hm)
+print(friend.play(lista_amigos))
 
 """
 Entradas da questão 4
@@ -54,9 +56,8 @@ Nuisance.register(Telemarketing)
 """
 Entradas da questão 5
 """
-nome_pitch = input('Qual o nome do PicthMan?')
-mkt = Telemarketing(nome_pitch, idade_person)
-mkt.giveSalesPitch(nome_pitch)
+mkt = Telemarketing(nome_person, idade_person)
+mkt.giveSalesPitch()
 mkt.annoy()
 
 """
@@ -94,3 +95,21 @@ while opcao != 0:
 butt = Butterfly(inseto,lista_cores)
 butt.toString(lista_cores)
 
+"""
+Entradas da questão 9
+"""
+
+amigo1 = Friend("Daniel", 40, "surfar")
+amigo2 = Friend("Daniel", 40, "tocar violão")
+amigo3 = Friend("Daniel", 40, "surfar")
+
+# método __eq__ implementado em friend.py
+if amigo1.__eq__(amigo2): 
+    print("Amigos iguais")
+else:
+    print("Amigos diferentes")
+
+if amigo1.__eq__(amigo3): 
+    print("Amigos iguais")
+else:
+    print("Amigos diferentes")

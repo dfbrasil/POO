@@ -9,10 +9,10 @@ class Mosquito(Insect):
 
     def __init__(self, species):
         super().__init__(species)
-        self.__species = species
+
 
     def buzz(self):
-        print(f'{self.__species} buzzing around')
+        print(f'{super().get_species()} buzzing around')
 
     """ 
     Método que é implementado pelo método abstrato nuisance.Nuisance

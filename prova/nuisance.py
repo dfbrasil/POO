@@ -8,5 +8,5 @@ class Nuisance(abc.ABC):
     """
 
     @abc.abstractmethod
-    def annoy(self):
+    def annoy():
         pass
