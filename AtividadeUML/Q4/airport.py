@@ -23,8 +23,8 @@ class Airport:
     def set_name(self, new_name : str) -> None:
         self.__name = new_name
 
-    def set_city(self, new_name_city : str, new_state : str, new_city : str) -> None:
-        self.__city = City(new_name_city, new_state, new_city)
+    def set_city(self, new_name_city : City) -> None:
+        self.__city = City(new_name_city)
 
     def set_takeoff_capacity(self, new_takeoff_capacity : int) -> None:
         self.__takeoff_capacity = new_takeoff_capacity

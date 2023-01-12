@@ -15,12 +15,12 @@ mecanic_latam = Crew("Breno", "2351564815", "breno@latam.com", "11345416515", r4
 from city import City
 
 guarulhos = City("Guarulhos", "SP", "Brasil")
-galeao = City("Rio de Janeiro", "RJ", "Brasil")
+rio = City("Rio de Janeiro", "RJ", "Brasil")
 
 from airport import Airport
 
 gru_airport = Airport("GRU Airport", guarulhos, 10)
-gal_airport = Airport("Galeão Airport", galeao, 5)
+gal_airport = Airport("Galeão Airport", rio, 5)
 
 from type_flight import Type_Flight
 
