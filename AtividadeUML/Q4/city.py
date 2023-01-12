@@ -1,5 +1,6 @@
 class City:
     
+    """constructor"""
     def __init__(self, name : str, state : str, country : str) -> None:
 
         self.__name = name
@@ -26,5 +27,6 @@ class City:
     def set_country(self, new_country : str) -> None:
         self.__country = new_country
 
+    """str"""
     def __str__(self):
         return (f'City Name: {self.__name} \nState: {self.__state}\nCountry: {self.__country}')

@@ -17,7 +17,7 @@ class Produto:
     def get_valor(self):
         return self.__valor
 
-    def set__valor(self, valor):
+    def set_valor(self, valor):
         self.__valor = valor
 
     def get_descricao(self):

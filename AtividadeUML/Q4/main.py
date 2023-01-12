@@ -31,11 +31,11 @@ from flight import Flight
 
 flight_latam = Flight('LAZ-1541', 32, tf2, gru_airport, gal_airport, 2023, 1, 13, 13, 30)
 flight_latam.add_crew(commander_latam)
-flight_latam.add_crew(co_pilot_latam)
+flight_latam.add_crew(co_pilot_latam)   
 flight_latam.add_crew(attendant_latam)
 flight_latam.add_crew(mecanic_latam)
 
-print(flight_latam)
+print("--------Flight--------\n\n", flight_latam)
 
 from passenger import Passenger
 
@@ -43,7 +43,7 @@ passenger_latam = Passenger("Mauro", "43123451534", "mauro@email.com", "11135461
 
 from operators import Operators
 
-operator_latam = Operators("joao", "1234", "d@.g.com","12345","3")
+operator_latam = Operators("Márcia", "3242545453", "marcia@latam.com","4234325543","3")
 
 booking_one = operator_latam.new_booking(passenger_latam, flight_latam)
-print("\n\nBooking:\n\n", booking_one)
+print("\n\n--------Booking--------\n\n", booking_one)

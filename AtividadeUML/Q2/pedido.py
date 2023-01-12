@@ -3,7 +3,7 @@ from produto import Produto
 
 class Pedido:
 
-    lista_pedido: ItemPedido = []
+    lista_pedido = []
 
     def __init__(self, valor_total) -> None:
         self.__valor_total = valor_total
@@ -18,8 +18,9 @@ class Pedido:
         self.lista_pedido.append(item)
 
     def obter_total(self):
+        valor_total = 0
         for i in self.lista_pedido:
-            qtd = float(i.get__quantidade())
-            vlr = float(i.produto.get_valor())
-            valor_total = qtd * vlr
+            qtd = float(i.get_quantidade())
+            vlr = float(i.get_produto().get_valor())
+            valor_total += (qtd * vlr)
         return valor_total

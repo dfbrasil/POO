@@ -2,6 +2,7 @@ from city import City
 
 class Airport:
 
+    """constructor"""
     def __init__(self, name : str, city : City, takeoff_capacity : int) -> None:
 
         self.__name = name
@@ -28,5 +29,6 @@ class Airport:
     def set_takeoff_capacity(self, new_takeoff_capacity : int) -> None:
         self.__takeoff_capacity = new_takeoff_capacity
 
+    """str"""
     def __str__(self) -> str:
-        return (f'Airport Name: {self.__name} \n{self.__city}\nTakeoff capacity: {self.__takeoff_capacity}')
+        return (f'Airport Name: {self.__name} \n{self.__city}')

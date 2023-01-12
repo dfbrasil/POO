@@ -5,6 +5,7 @@ from date import Date
 
 class Flight:
     
+    """constructor"""
     def __init__(self, code : str, free_seats : int, type : Type_Flight, origin_airport : Airport, destination_airport : Airport, year :int, month: int, day:int, hour:int, minute:int) -> None:
 
         self.__code = code
@@ -30,7 +31,7 @@ class Flight:
     def get_code(self) -> str:
         return self.__code
 
-    def get_free_seats(self) -> str:
+    def get_free_seats(self) -> int:
         return self.__free_seats
 
     def get_type(self) -> str:
@@ -50,7 +51,6 @@ class Flight:
 
     def get_date_time(self):
         return self.__date_time
-
 
     """setters"""
     def set_code(self, new_code : str) -> None:
@@ -73,4 +73,4 @@ class Flight:
 
     """str"""
     def __str__(self) -> str:
-        return (f'Code: {self.__code} \nFree seats: {self.__free_seats}\nType: {self.__type_flight.name} \nCrew( {self.get_crews()}) \nOrigin: \n{self.__origin_airport} \nDestination: \n{self.__destination_airport}\n {self.__date_time} ')
+        return (f'Code: {self.__code} \nFree seats: {self.__free_seats}\nType: {self.__type_flight.name} \nDate: {self.__date_time.get_date()} \nHorário: {self.__date_time.get_time()} \nCrew\n[ {self.get_crews()}\n] \nOrigin: \n{self.__origin_airport} \nDestination: \n{self.__destination_airport} ')

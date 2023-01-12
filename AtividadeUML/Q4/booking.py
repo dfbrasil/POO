@@ -1,9 +1,6 @@
-# from passenger import Passenger
-# from flight import Flight
-# from operator import Operator
-
 class Booking:
 
+    """constructor"""
     def __init__(self, passenger, flight , operator )  -> None:
 
         self.__passenger = passenger
@@ -30,5 +27,6 @@ class Booking:
     def set_operator(self, new_operator) -> None:
         self.__operator = new_operator
 
+    """str"""
     def __str__(self) -> None:
-        return (f'Passenger: \n{self.__passenger} \n\nFlight: \n{self.__flight}\n\nOperator: \n{self.__operator} \n')
+        return (f'\nPassenger: \n{self.__passenger} \n\nFlight: \n\n{self.__flight}\n\nOperator: \n\n{self.__operator} \n')

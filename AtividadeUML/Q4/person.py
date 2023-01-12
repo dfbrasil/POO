@@ -1,5 +1,6 @@
 class Person:
 
+    """constructor"""
     def __init__(self, name : str, cpf : str, email_adress : str, phone_number : str):
 
         self.__name = name
@@ -33,5 +34,6 @@ class Person:
     def set_phone_number(self, new_phone_number : str) -> None:
         self.__phone_number = new_phone_number
 
+    """str"""
     def __str__(self) -> str:
         return (f'Name: {self.__name} \nCpf: {self.__cpf}\nEmail: {self.__email_adress} \nPhone: {self.__phone_number}')
