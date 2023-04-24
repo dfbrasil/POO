@@ -6,5 +6,3 @@ class Crew_Role(Enum):
     flight_attendant = 'flight_attendant'
     flight_mecanic = 'flight_mecanic'
         
-
-
